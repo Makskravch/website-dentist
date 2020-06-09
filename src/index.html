@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Template</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="initial-scale=1.0, width=device-width"/>
-	<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
-</head>
+@@include('_head.html')
   
 <body>
 	@@include('_header.html')
 
-	<main class="main">
-		Main
+	<main class="main" id="main">
+		<!-- HOME -->
+		<div class="home" id="home">
+			<!-- Banner -->
+			<section class="home__banner banner">
+				<div class="banner__inner">
+					<div class="banner__description">
+						<h2 class="banner__title">
+							Ваш врач 
+							<span>ортодонт</span>
+						</h2>
+						<p class="banner__paragraph">
+							<span>Подарите себе улыбку</span>
+							<span>Запишитесь на бесплатный прием</span>
+						</p>
+						<a href="tel:+380677332413" class="banner__link">
+							Записаться
+						</a>
+					</div>
+				</div>
+			</section>
+		</div>
 	</main>
 	
 	@@include('_footer.html')
 
-	<script src="js/script.js"></script>
+	@@include('_scripts.html')
 </body>
 </html>

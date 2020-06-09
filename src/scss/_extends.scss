@@ -1,16 +1,5 @@
 %center_block {
-	max-width: $site_width;
+	max-width: $site_width + px;
 	width: 100%;
 	margin: 0 auto;
-	text-align: center;
 }
-
-%clearfix {
-	&::after {
-		content: "";
-		display: block;
-		width: 100%;
-		clear: both;
-	}
-}
-

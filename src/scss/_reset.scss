@@ -6,6 +6,15 @@ html {
 	box-sizing: border-box;
 }
 
+* {
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	-ms-overflow-style: none;
+}
+
 body, h1, h2, h3, h4, h5, h6, p, ul, li {
 	margin: 0;
 	padding: 0;
@@ -23,16 +32,10 @@ a {
 	text-decoration: none;
 }
 
-img {
+img, svg {
   display: block;
   max-width: 100%;
   margin: 0 auto;
-}
-
-svg {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 input,

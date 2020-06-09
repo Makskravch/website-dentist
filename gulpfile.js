@@ -7,9 +7,12 @@ const { src, dest } = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	media_queries = require('gulp-group-css-media-queries'),
 	clean_css = require('gulp-clean-css'),
-	rename = require('gulp-rename'),
+	browserify = require('browserify'),
+	source = require('vinyl-source-stream'),
+	streamify = require('gulp-streamify'),
 	uglify = require('gulp-uglify-es').default,
-	imagemin = require('gulp-imagemin'),
+	rename = require('gulp-rename'),
+	tinypng = require('gulp-tinypng-compress'),
 	iconfont = require('gulp-iconfont'),
 	iconfontCss = require('gulp-iconfont-css'),
 	fontName = 'iconfont',
@@ -79,31 +82,28 @@ function css() {
 }
 
 function js() {
-	return src(path.src.js)
-		.pipe(file_include())
-		.pipe(dest(path.build.js))
-		.pipe(uglify())
-		.pipe(rename({ extname: '.min.js' }))
-		.pipe(dest(path.build.js))
-		.pipe(browsersync.stream())
+  return browserify(path.src.js)
+  .bundle()
+	.pipe(source('script.js'))
+	.pipe(streamify(sourcemaps.init()))
+	.pipe(streamify(sourcemaps.write()))
+  .pipe(dest(path.build.js))
+  .pipe(streamify(uglify()))
+	.pipe(rename({ extname: '.min.js' }))
+	.pipe(dest(path.build.js))
+	.pipe(browsersync.stream())
 }
 
 function img() {
 	return src(path.src.img)
-		.pipe(
-			imagemin({
-				progressive: true,
-				svgoPlugins: [
-					{
-						removeViewBox: true
-					}
-				],
-				interlaced: true,
-				optimizationLevel: 3,
-			})
-		)
-		.pipe(dest(path.build.img))
-		.pipe(browsersync.stream())
+	.pipe(tinypng({
+		key: 'xMgdrYZJjl2bhB8jZ8LK5tWWQmGRkP2N',
+		// sigFile: path.src.img + '.tinypng-sigs',
+		log: true,
+		summarize: true
+	}))
+	.pipe(dest(path.build.img))
+	.pipe(browsersync.stream())
 }
 
 function iconFont() {
@@ -123,7 +123,7 @@ function iconFont() {
 			normalize: true,
 			formats: ['ttf', 'eot', 'woff', 'svg', 'woff2'],
 		}))
-		.pipe(dest(path.build.fonts + '/icons'));
+		.pipe(dest(path.build.fonts + '/icons'))
 }
 
 function watchFiles() {

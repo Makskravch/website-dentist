@@ -3,6 +3,10 @@
 @import "extends.scss";
 @import "mixins.scss";
 @import "reset.scss";
+@import "general.scss";
 // General
 @import "general/header/header";
 @import "general/footer/footer";
+
+
+@import "home/home";
