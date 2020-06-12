@@ -79,7 +79,7 @@
     margin: 0 30px;
 
     @include respond-to(tablet) {
-      margin: 0 15px;
+      margin: 0 14px;
     }
 
     @include respond-to(mobile) {
@@ -98,6 +98,7 @@
 
     @include respond-to(mobile) {
       display: block;
+      text-align: center;
       color: $white_0;
     }
   }

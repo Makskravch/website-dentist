@@ -12,7 +12,7 @@ const { src, dest } = require('gulp'),
 	streamify = require('gulp-streamify'),
 	uglify = require('gulp-uglify-es').default,
 	rename = require('gulp-rename'),
-	tinypng = require('gulp-tinypng-compress'),
+	imagemin = require('gulp-imagemin'),
 	iconfont = require('gulp-iconfont'),
 	iconfontCss = require('gulp-iconfont-css'),
 	fontName = 'iconfont',
@@ -36,7 +36,7 @@ const path = {
 		css: sourceFolder + '/scss/style.scss',
 		js: sourceFolder + '/js/script.js',
 		img: sourceFolder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
-		fonts: sourceFolder + '/fonts/',
+		fonts: sourceFolder + '/fonts/**/*.{eot,ttf,woff,woff2,svg}',
 		icons: sourceFolder + '/img/svg/*.svg',
 	},
 	watch: {
@@ -94,20 +94,35 @@ function js() {
 	.pipe(browsersync.stream())
 }
 
+function fonts() {
+	return src(path.src.fonts)
+	.pipe(dest(path.build.fonts))
+}
+
 function img() {
 	return src(path.src.img)
-	.pipe(tinypng({
-		key: 'xMgdrYZJjl2bhB8jZ8LK5tWWQmGRkP2N',
-		// sigFile: path.src.img + '.tinypng-sigs',
-		log: true,
-		summarize: true
+	.pipe(imagemin({
+		interlaced: true,
+    progressive: true,
+    optimizationLevel: 3
 	}))
 	.pipe(dest(path.build.img))
 	.pipe(browsersync.stream())
 }
+// function img() {
+// 	return src(path.src.img)
+// 	.pipe(tinypng({
+// 		key: 'xMgdrYZJjl2bhB8jZ8LK5tWWQmGRkP2N',
+// 		// sigFile: path.src.img + '.tinypng-sigs',
+// 		log: true,
+// 		summarize: true
+// 	}))
+// 	.pipe(dest(path.build.img))
+// 	.pipe(browsersync.stream())
+// }
 
 function iconFont() {
-	// var runTimestamp = Math.round(Date.now()/1000);
+	var runTimestamp = Math.round(Date.now()/1000);
 	return src([path.src.icons], {base: 'src'})
 		.pipe(iconfontCss({
 			fontName: fontName,
@@ -137,10 +152,11 @@ function clean() {
 	return del(path.clean)
 }
 
-const build = gulp.series(clean, gulp.parallel(js, css, html, img))
+const build = gulp.series(clean, gulp.parallel(js, css, html, img, fonts))
 const watch = gulp.parallel(build, watchFiles, browserSync)
 
 exports.iconFont = iconFont
+exports.fonts = fonts
 exports.img = img
 exports.js = js
 exports.css = css

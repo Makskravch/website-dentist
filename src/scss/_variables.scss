@@ -9,7 +9,7 @@ $desktop-extra: 1600px;
 // FONT SIZE
 $base_font_size: 10px;
 // WIDTH
-$site_width: 1210;
+$site_width: 1210; // 1180px + 30px (padding)
 // Padding
 $ph: 15px;
 // COLOR
@@ -18,5 +18,8 @@ $black_0: #000;
 
 $gray_0: #5A5A5A;
 $gray_1: #8D8D8D;
+$gray_2: #C4C4C4;
+$gray_3: #393E46;
+$gray_4: rgba(169, 169, 169, 0.25);
 
 $yellow_0: #FFB941;

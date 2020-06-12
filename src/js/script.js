@@ -1,13 +1,38 @@
 let $ = require('jquery')
+let slick = require('./slick.js')
 
 $(function() {
   const $body = $('body')
   const $nav = $('nav')
   
+  // Open/close navigation
   $(document).on('click', '.js-nav-toggle', function() {
     $(this).toggleClass('is-active')
     $nav.toggleClass('is-active')
     $body.toggleClass('overflow')
     $('.header__phone').toggleClass('is-hidden')
   })
+
+
+  // HOME
+  // Slider
+  if ($('.promotion .slider__list').length) {
+    $('.promotion .slider__list').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      infinite: true,
+      // autoplay: 2000,
+      dots: true,
+      speed: 1000,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+          }
+        },
+      ]
+    });
+  }
 })
