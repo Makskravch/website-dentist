@@ -15,7 +15,7 @@ $(function() {
 
 
   // HOME
-  // Slider
+  // Slider (promotion section)
   if ($('.promotion .slider__list').length) {
     $('.promotion .slider__list').slick({
       slidesToShow: 1,
@@ -33,6 +33,19 @@ $(function() {
           }
         },
       ]
+    });
+  }
+
+  // Slider (services section)
+  
+  if ($('.services .slider__list').length) {
+    $('.services .slider__list').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      infinite: true,
+      // autoplay: 2000,
+      speed: 1000,
     });
   }
 })
