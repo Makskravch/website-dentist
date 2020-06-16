@@ -11,7 +11,7 @@
 	font-family: $font_family;
 }
 
-@mixin background($url, $top: top, $left: left, $size: cover, $color: transparent, $repeat: no-repeat) {
+@mixin background($url, $top: top, $left: center, $size: cover, $color: transparent, $repeat: no-repeat) {
 	background-image: $url;
 	background-position: $top $left;
 	background-size: $size;

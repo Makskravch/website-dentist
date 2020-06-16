@@ -774,4 +774,65 @@
       }
     }
   }
+
+  .appointment {
+    @include background(url("../../img/home/appointment/1.jpg"));
+
+    @include respond-to(mobile) {
+      display: none;
+    }
+
+    &__inner {
+      @extend %center_block;
+
+      padding: 10.42% $ph 9.38%;
+    }
+
+    &__description {
+      width: 50.85%;
+      margin-left: auto;
+      text-align: center;
+    }
+
+    &__title {
+      @include font(48px, 72px, "PlayfairDisplay-Bold");
+
+      margin-bottom: 20px;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(48, 72, 18, 22, "PlayfairDisplay-Bold");
+      }
+    }
+
+    &__paragraph {
+      @include font(24px, 36px, "PlayfairDisplay-Regular");
+
+      margin-bottom: 20px;
+      color: $yellow_1;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(24, 36, 16, 20, "PlayfairDisplay-Regular");
+      }
+    }
+
+    &__link {
+      @include font(18px, 27px, "Lato-Bold");
+
+      display: inline-block;
+      padding: 15px 50px;
+      background-color: $yellow_0;
+      border: 1px solid $yellow_0;
+      transition: color 0.2s linear, background-color 0.2s linear;
+      color: $white_0;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(18, 27, 14, 20, "Lato-Bold");
+      }
+
+      &:hover {
+        color: $yellow_0;
+        background-color: transparent;
+      }
+    }
+  }
 }
