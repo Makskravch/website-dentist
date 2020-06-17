@@ -590,7 +590,7 @@
       letter-spacing: -0.015em;
 
       @include respond-to(desktop) {
-        @include adaptive-font(18, 27, 18, 20, "Lato-Regular");
+        @include adaptive-font(18, 27, 14, 20, "Lato-Regular");
       }
 
       @include respond-to(mobile) {
@@ -776,7 +776,7 @@
   }
 
   .appointment {
-    @include background(url("../../img/home/appointment/1.jpg"));
+    @include background(url("../img/home/appointment/1.jpg"));
 
     @include respond-to(mobile) {
       display: none;
@@ -832,6 +832,183 @@
       &:hover {
         color: $yellow_0;
         background-color: transparent;
+      }
+    }
+  }
+
+  .how-we-work {
+    @include background(url("../img/home/how-we-work/1.png"));
+
+    &__inner {
+      @extend %center_block;
+
+      padding: 3.4% $ph;
+    }
+
+    &__title {
+      @include font(64px, 64px, "PlayfairDisplay-Bold");
+
+      margin-bottom: 5.51%;
+      color: $gray_3;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(64, 64, 18, 20, "PlayfairDisplay-Bold");
+      }
+
+      @include respond-to(mobile) {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        &::before {
+          content: "";
+          width: 1px;
+          height: 35px;
+          margin-right: 6px;
+          background-color: $yellow_1;
+        }
+      }
+    }
+
+    &__paragraph {
+      @include font(24px, 24px, "Lato-Regular");
+
+      margin-bottom: 5.51%;
+      color: $gray_0;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(24, 24, 14, 16, "Lato-Regular");
+      }
+
+      @include respond-to(mobile) {
+        margin-bottom: 20px;
+      }
+    }
+
+    .algorithm {
+
+      &__list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 70px 5.08%;
+        counter-reset: number;
+
+        @include respond-to(desktop) {
+          grid-gap: 50px 5.08%;
+        }
+
+        @include respond-to(tablet) {
+          grid-gap: 30px 5.08%;
+        }
+
+        @include respond-to(mobile) {
+          grid-template-columns: 1fr;
+          grid-gap: 15px;
+        }
+      }
+
+      &__item {
+        display: flex;
+        align-items: center;
+
+        &::before {
+          @include font(96px, 100px, "Lato-Bold");
+
+          counter-increment: number;
+          content: "0" counter(number);
+          transform: translateX(10%);
+          color: $gray_2;
+
+          @include respond-to(desktop) {
+            @include adaptive-font(96, 100, 32, 36, "Lato-Bold");
+          }
+        }
+      }
+
+      &__description {
+        position: relative;
+        flex-grow: 1;
+        height: 100%;
+        padding: 30px 46px;
+        border-top: 1px solid $yellow_1;
+        border-bottom: 1px solid $yellow_1;
+
+        @include respond-to(tablet) {
+          padding: 15px 20px;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 30px;
+          border-left: 1px solid $yellow_1;
+
+          @include respond-to(tablet) {
+            height: 20px;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 30px;
+          border-left: 1px solid $yellow_1;
+
+          @include respond-to(tablet) {
+            height: 20px;
+          }
+        }
+      }
+
+      &__title {
+        @include font(24px, 24px, "PlayfairDisplay-Bold");
+
+        margin-bottom: 20px;
+        color: $gray_3;
+
+        @include respond-to(desktop) {
+          @include adaptive-font(24, 24, 18, 20, "PlayfairDisplay-Bold");
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 30px;
+          border-left: 1px solid $yellow_1;
+
+          @include respond-to(tablet) {
+            height: 20px;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          height: 30px;
+          border-left: 1px solid $yellow_1;
+
+          @include respond-to(tablet) {
+            height: 20px;
+          }
+        }
+      }
+
+      &__paragraph {
+        @include font(18px, 27px, "Lato-Regular");
+
+        color: $gray_3;
+
+        @include respond-to(desktop) {
+          @include adaptive-font(18, 27, 12, 18, "Lato-Regular");
+        }
       }
     }
   }

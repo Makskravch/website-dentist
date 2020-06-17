@@ -39,6 +39,12 @@
 	@if $filename == phone {
 		$char: "\E004";
 	}
+	@if $filename == stady {
+		$char: "\E005";
+	}
+	@if $filename == tooth {
+		$char: "\E006";
+	}
 
 	@return $char;
 }
@@ -65,4 +71,10 @@
 }
 .icon-phone {
 	@include icon(phone);
+}
+.icon-stady {
+	@include icon(stady);
+}
+.icon-tooth {
+	@include icon(tooth);
 }
