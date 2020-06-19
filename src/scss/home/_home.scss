@@ -1012,4 +1012,138 @@
       }
     }
   }
+
+  .our-works {
+    background-color: $gray_6;
+
+    &__inner {
+      @extend %center_block;
+
+      padding: 3.65% $ph;
+      color: $gray_3;
+
+      @include respond-to(mobile) {
+        padding: 20px $ph 35px;
+      }
+    }
+
+    &__title {
+      @include font(64px, 64px, "PlayfairDisplay-Bold");
+
+      margin-bottom: 5.93%;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(64, 64, 18, 18, "PlayfairDisplay-Bold");
+      }
+
+      @include respond-to(mobile) {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        
+        &::before {
+          content: "";
+          width: 1px;
+          height: 35px;
+          margin-right: 6px;
+          background-color: $yellow_1;
+        }
+      }
+    }
+
+    .slider {
+      width: 90.68%;
+      margin: 0 auto;
+      background-color: $white_0;
+    }
+
+    .slide {
+      padding: 24px 15px;
+
+      @include respond-to(mobile) {
+        padding: 6px 3px;
+      }
+
+      &__description {
+        @include font(18px, 20px, "Lato-Regular");
+
+        margin-top: 20px;
+        text-align: center;
+        
+        @include respond-to(desktop) {
+          @include adaptive-font(18, 20, 8, 10, "Lato-Regular");
+        }
+
+        @include respond-to(mobile) {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .figure {
+      width: 25%;
+      padding: 0 12px;
+
+      @include respond-to(mobile) {
+        padding: 0 3px;
+      }
+
+      &-container {
+        display: flex;
+      }
+
+      &__img {
+
+        &-container {
+          margin-bottom: 10px;
+        }
+      }
+
+      &__caption {
+        @include font(18px, 20px, "Lato-Regular");
+
+        text-align: center;
+        
+        @include respond-to(desktop) {
+          @include adaptive-font(18, 20, 8, 10, "Lato-Regular");
+        }
+      }
+    }
+
+    .slick-prev,
+    .slick-next {
+      width: auto;
+      height: auto;
+
+      &::before {
+        @include font(35px, 35px, iconfont);
+
+        color: $gray_0;
+        
+        @include respond-to(desktop) {
+          @include adaptive-font(35, 35, 6, 6, iconfont);
+        }
+      }
+    }
+
+    .slick-prev {
+      @include icon(arrow_prev);
+      
+      left: -5%;
+    }
+
+    .slick-next {
+      @include icon(arrow_next);
+      
+      right: -5%;
+    }
+
+    .slick-dots {
+      bottom: -50px;
+    }
+
+    .slick-dotted.slick-slider {
+      margin-bottom: 50px;
+    }
+  }
 }

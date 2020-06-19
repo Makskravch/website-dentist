@@ -37,15 +37,33 @@ $(function() {
   }
 
   // Slider (services section)
-  
   if ($('.services .slider__list').length) {
     $('.services .slider__list').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
       draggable: true,
       infinite: true,
-      // autoplay: 2000,
       speed: 1000,
+    });
+  }
+
+  // Slider (our-works section)
+  if ($('.our-works .slider__list').length) {
+    $('.our-works .slider__list').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      infinite: true,
+      dots: true,
+      speed: 1000,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            dots: false,
+          }
+        },
+      ]
     });
   }
 })
