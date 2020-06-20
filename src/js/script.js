@@ -66,4 +66,30 @@ $(function() {
       ]
     });
   }
+
+  // Slider (blog section)
+  if ($('.blog .slider__list').length) {
+    $('.blog .slider__list').slick({
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      draggable: true,
+      infinite: true,
+      speed: 1000,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '35%',
+            arrows: false,
+          }
+        },
+      ]
+    })
+    .on('setPosition', function (event, slick) {
+      slick.$slides.css('height', slick.$slideTrack.height() + 'px');
+    });
+  }
 })

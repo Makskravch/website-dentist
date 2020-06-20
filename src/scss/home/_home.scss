@@ -613,9 +613,13 @@
       height: auto;
 
       &::before {
-        @include adaptive-font(35, 35, 12, 12, "iconFont");
+        @include font(35px, 35px, iconfont);
 
         color: $gray_0;
+        
+        @include respond-to(desktop) {
+          @include adaptive-font(35, 35, 6, 6, iconfont);
+        }
       }
     }
 
@@ -1144,6 +1148,158 @@
 
     .slick-dotted.slick-slider {
       margin-bottom: 50px;
+    }
+  }
+
+  .blog {
+    @include background(url("../img/home/blog/bg.png"));
+
+    &__inner {
+      @extend %center_block;
+
+      padding: 4.69% $ph;
+    }
+
+    &__title {
+      @include font(64px, 64px, "PlayfairDisplay-Bold");
+
+      margin-bottom: 6.78%;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(64, 64, 18, 18, "PlayfairDisplay-Bold");
+      }
+
+      @include respond-to(mobile) {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        &::before {
+          content: "";
+          width: 1px;
+          height: 35px;
+          margin-right: 6px;
+          background-color: $yellow_1;
+        }
+      }
+    }
+
+    .slider {
+      width: 86.86%;
+      margin: 0 auto;
+
+      @include respond-to(mobile) {
+        width: 100%;
+      }
+
+      &__item {
+        height: 100%;
+        padding: 10px 10px 15px;
+
+        @include respond-to(mobile) {
+          padding: 0 5px;
+        }
+      }
+    }
+
+    .slide {
+      height: 100%;
+
+      &__link {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        transition: box-shadow 0.3s linear;
+
+        @media only screen and (min-width: 992px) {
+          &:hover {
+            box-shadow: 0px 5px 10px $gray_2;
+          }
+        }
+      }
+    }
+
+    .figure {
+      // width: 48.78%;
+      padding: 30px 30px 50px;
+      background-color: $white_0;
+
+      @include respond-to(mobile) {
+        padding: 12px 12px 25px;
+      }
+
+      &__img-container {
+        margin-bottom: 12.5%;
+
+        @include respond-to(mobile) {
+          margin-bottom: 10px;
+        }
+      }
+
+      &__title {
+        @include font(24px, 36px, "Lato-Bold");
+
+        margin-bottom: 5.68%;
+        color: $gray_0;
+
+        @include respond-to(desktop) {
+          @include adaptive-font(24, 36, 14, 20, "Lato-Bold");
+        }
+
+        @include respond-to(mobile) {
+          margin-bottom: 0;
+        }
+      }
+
+      &__description {
+        @include font(18px, 27px, "Lato-Regular");
+
+        color: $gray_0;
+
+        @include respond-to(desktop) {
+          @include adaptive-font(18, 27, 10, 14, "Lato-Regular");
+        }
+
+        @include respond-to(mobile) {
+          display: none;
+        }
+      }
+    }
+
+    .slick-list {
+      padding-left: 0 !important;
+    }
+
+    .slick-slide > div {
+      height: 100%;
+    }
+
+    .slick-prev,
+    .slick-next {
+      width: auto;
+      height: auto;
+
+      &::before {
+        @include font(35px, 35px, iconfont);
+
+        color: $gray_0;
+        
+        @include respond-to(desktop) {
+          @include adaptive-font(35, 35, 6, 6, iconfont);
+        }
+      }
+    }
+
+    .slick-prev {
+      @include icon(arrow_prev);
+      
+      left: -7%;
+    }
+
+    .slick-next {
+      @include icon(arrow_next);
+      
+      right: -7%;
     }
   }
 }
