@@ -92,4 +92,31 @@ $(function() {
       slick.$slides.css('height', slick.$slideTrack.height() + 'px');
     });
   }
+
+  // Slider (reviews section)
+  if ($('.reviews .slider__list').length) {
+    $('.reviews .slider__list').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      infinite: true,
+      speed: 1000,
+    })
+    .on('setPosition', function (event, slick) {
+      slick.$slides.css('height', slick.$slideTrack.height() + 'px');
+    });
+  }
+
+  // Maps of the "contacts" block ("home" page)
+  if ($('.contacts .map').length) {
+    let $streetItem = $('.street__item')
+    let $mapItem = $('.map__iframe')
+    
+    $(document).on('click', '.street__item', function() {
+      $streetItem.removeClass('is-active')
+      $(this).addClass('is-active')
+      $mapItem.removeClass('is-active')
+      $mapItem[$streetItem.index(this)].classList.add('is-active')
+    })
+  }
 })

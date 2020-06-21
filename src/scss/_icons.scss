@@ -33,17 +33,23 @@
 	@if $filename == arrow_prev {
 		$char: "\E002";
 	}
-	@if $filename == logo {
+	@if $filename == location {
 		$char: "\E003";
 	}
-	@if $filename == phone {
+	@if $filename == logo {
 		$char: "\E004";
 	}
-	@if $filename == stady {
+	@if $filename == phone {
 		$char: "\E005";
 	}
-	@if $filename == tooth {
+	@if $filename == stady {
 		$char: "\E006";
+	}
+	@if $filename == star {
+		$char: "\E007";
+	}
+	@if $filename == tooth {
+		$char: "\E008";
 	}
 
 	@return $char;
@@ -66,6 +72,9 @@
 .icon-arrow_prev {
 	@include icon(arrow_prev);
 }
+.icon-location {
+	@include icon(location);
+}
 .icon-logo {
 	@include icon(logo);
 }
@@ -74,6 +83,9 @@
 }
 .icon-stady {
 	@include icon(stady);
+}
+.icon-star {
+	@include icon(star);
 }
 .icon-tooth {
 	@include icon(tooth);
