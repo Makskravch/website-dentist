@@ -1,0 +1,25 @@
+.message {
+  @include background(url("../img/svg/message.svg"), 50%, 30%, 160%);
+
+  position: fixed;
+  bottom: 50px;
+  right: 100px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  z-index: 8;
+  cursor: pointer;
+
+  @include respond-to(desktop-extra) {
+    right: 50px;
+  }
+
+  @include respond-to(desktop) {
+    bottom: 30px;
+    right: 30px;
+  }
+
+  &__list {
+    display: none;
+  }
+}

@@ -18,6 +18,7 @@
 
   &__nav_btn {
     display: none;
+    padding: 5px;
 
     @include respond-to(mobile) {
       display: block;
@@ -42,14 +43,14 @@
 
 .nav {
   @include respond-to(mobile) {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 100px;
     left: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100vw;
-    height: calc(100vh - 100px);
+    height: calc(100% - 100px);
     background-color: $gray_1;
     transform-origin: 50% 0;
     transform: scaleY(0);

@@ -34,10 +34,10 @@ const path = {
 	src: {
 		html: [sourceFolder + '/*.html', '!' + sourceFolder + '/_*.html'],
 		css: sourceFolder + '/scss/style.scss',
-		js: sourceFolder + '/js/script.js',
+		js: sourceFolder + '/js/main.js',
 		img: sourceFolder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
 		fonts: sourceFolder + '/fonts/**/*.{eot,ttf,woff,woff2,svg}',
-		icons: sourceFolder + '/img/svg/*.svg',
+		icons: [sourceFolder + '/img/svg/*.svg', '!' + sourceFolder + '/img/svg/_*.svg'],
 	},
 	watch: {
 		html: sourceFolder + '/**/*.html',
@@ -84,7 +84,7 @@ function css() {
 function js() {
   return browserify(path.src.js)
   .bundle()
-	.pipe(source('script.js'))
+	.pipe(source('main.js'))
 	.pipe(streamify(sourcemaps.init()))
 	.pipe(streamify(sourcemaps.write()))
   .pipe(dest(path.build.js))
@@ -109,21 +109,10 @@ function img() {
 	.pipe(dest(path.build.img))
 	.pipe(browsersync.stream())
 }
-// function img() {
-// 	return src(path.src.img)
-// 	.pipe(tinypng({
-// 		key: 'xMgdrYZJjl2bhB8jZ8LK5tWWQmGRkP2N',
-// 		// sigFile: path.src.img + '.tinypng-sigs',
-// 		log: true,
-// 		summarize: true
-// 	}))
-// 	.pipe(dest(path.build.img))
-// 	.pipe(browsersync.stream())
-// }
 
 function iconFont() {
-	var runTimestamp = Math.round(Date.now()/1000);
-	return src([path.src.icons], {base: 'src'})
+	let runTimestamp = Math.round(Date.now()/1000);
+	return src(path.src.icons, {base: sourceFolder})
 		.pipe(iconfontCss({
 			fontName: fontName,
 			path: 'src/scss/template/_icons.scss',
@@ -137,6 +126,7 @@ function iconFont() {
 			fontHeight: 1001,
 			normalize: true,
 			formats: ['ttf', 'eot', 'woff', 'svg', 'woff2'],
+			timestamp: runTimestamp,
 		}))
 		.pipe(dest(path.build.fonts + '/icons'))
 }

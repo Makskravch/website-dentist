@@ -36,7 +36,7 @@
 	@if $filename == location {
 		$char: "\E003";
 	}
-	@if $filename == logo {
+	@if $filename == message {
 		$char: "\E004";
 	}
 	@if $filename == phone {
@@ -75,8 +75,8 @@
 .icon-location {
 	@include icon(location);
 }
-.icon-logo {
-	@include icon(logo);
+.icon-message {
+	@include icon(message);
 }
 .icon-phone {
 	@include icon(phone);

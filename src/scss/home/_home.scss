@@ -679,6 +679,7 @@
     .slick-next {
       width: auto;
       height: auto;
+      z-index: 1;
 
       &::before {
         @include font(35px, 35px, iconfont);
