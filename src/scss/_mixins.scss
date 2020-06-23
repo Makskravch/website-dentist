@@ -71,6 +71,12 @@
 			@content;
 		}
 	}
+	// 0 - 992
+	@if $media == tablet-plus {
+		@media only screen and (max-width: $tablet-plus) {
+			@content;
+		}
+	}
 	// 0 - 1024
 	@if $media == tablet {
 		@media only screen and (max-width: $tablet-landscape) {

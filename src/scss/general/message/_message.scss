@@ -4,11 +4,20 @@
   position: fixed;
   bottom: 50px;
   right: 100px;
-  width: 70px;
-  height: 70px;
+  height: 0;
+  width: 4.17%;
+  padding-bottom: 4.17%;
   border-radius: 50%;
   z-index: 8;
   cursor: pointer;
+
+  &:hover {
+
+    .message__list {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 
   @include respond-to(desktop-extra) {
     right: 50px;
@@ -19,7 +28,45 @@
     right: 30px;
   }
 
-  &__list {
+  @include respond-to(tablet-plus) {
     display: none;
+  }
+
+  &__list {
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 46px;
+    padding: 10px;
+    background-color: $white_0;
+    transition: opacity 0.2s linear 0.2s, visibility 0.2s linear 0.2s;
+    cursor: default;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__item {
+    margin-bottom: 5px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+
+    svg {
+      transition: transform 0.2s linear;
+    }
+    
+    &:hover {
+      
+      svg {
+        transform: scale(1.3);
+      }
+    }
   }
 }
