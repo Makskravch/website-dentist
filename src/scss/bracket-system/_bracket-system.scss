@@ -1,0 +1,395 @@
+.bracket-system {
+
+  &__title {
+    @include font(36px, 40px, "PlayfairDisplay-Bold");
+
+    margin-bottom: 8.62%;
+    color: $gray_9;
+
+    @include respond-to(desktop) {
+      @include adaptive-font(36, 40, 18, 20, "PlayfairDisplay-Bold");
+    }
+
+    @include respond-to(mobile) {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      &::before {
+        content: "";
+        width: 1px;
+        height: 35px;
+        margin-right: 6px;
+        background-color: $yellow_1;
+      }
+    }
+
+    @include respond-to(mobile_small) {
+      width: 55%;
+    }
+  }
+
+  .correction {
+
+    &__inner {
+      @extend %center_block;
+
+      padding: 5.73% $ph 3.91%;
+    }
+
+    &__main {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4.24%;
+
+      @include respond-to(mobile_small) {
+        position: relative;
+      }
+    }
+
+    &__title {
+      @include font(24px, 28px, "PlayfairDisplay-Regular");
+
+      margin-bottom: 6.03%;
+      color: $gray_9;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(24, 28, 16, 20, "PlayfairDisplay-Regular");
+      }
+
+      @include respond-to(mobile) {
+        margin-bottom: 30px;
+      }
+
+      @include respond-to(mobile_small) {
+        width: 55%;
+      }
+    }
+
+    &__paragraph {
+      @include font(18px, 27px, "Lato-Regular");
+
+      color: $gray_0;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(18, 27, 14, 20, "Lato-Regular");
+      }
+    }
+
+    &__block {
+
+      &-left {
+        width: calc(50% - 15px);
+        max-width: 580px;
+        margin-right: 15px;
+
+        @include respond-to(mobile_small) {
+          width: 100%;
+          margin-right: 0;
+        }
+      }
+
+      &-right {
+        width: 50%;
+        max-width: 424px;
+
+        @include respond-to(mobile_small) {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 130px;
+        }
+      }
+    }
+
+    .figure {
+      position: relative;
+      height: 0;
+      width: 100%;
+      padding-bottom: 69.81%;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__quote {
+      @include font(18px, 27px, "PlayfairDisplay-Italic");
+
+      position: relative;
+      max-width: 490px;
+      padding: 15px 100px;
+      border-left: 1px solid $yellow_1;
+      border-right: 1px solid $yellow_1;
+      margin: 0 auto;
+      color: $gray_0;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(18, 27, 14, 20, "PlayfairDisplay-Italic");
+      }
+
+      @include respond-to(mobile_small) {
+        padding: 15px 5.2%;
+      }
+
+      span {
+        display: block;
+      }
+
+      .line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        &_left {
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 1px;
+            width: 64px;
+            border-top: 1px solid $yellow_1;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 64px;
+            border-top: 1px solid $yellow_1;
+          }
+        }
+
+        &_right {
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 1px;
+            width: 64px;
+            border-top: 1px solid $yellow_1;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            width: 64px;
+            border-top: 1px solid $yellow_1;
+          }
+        }
+      }
+    }
+  }
+
+  .consequences {
+    background-color: $gray_7;
+
+    &__inner {
+      @extend %center_block;
+
+      padding: 35px $ph;
+    }
+
+    &__title {
+      @include font(24px, 28px, "PlayfairDisplay-Regular");
+
+      margin-bottom: 24px;
+      color: $gray_9;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(24, 28, 16, 20, "PlayfairDisplay-Regular");
+      }
+    }
+
+    &__text {
+      @include font(18px, 28px, "Lato-Regular");
+
+      margin-bottom: 20px;
+      color: $gray_0;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(18, 28, 14, 20, "Lato-Regular");
+      }
+    }
+
+    &__list {
+      counter-reset: order;
+      display: flex;
+
+      @include respond-to(mobile) {
+        flex-direction: column;
+      }
+    }
+
+    &__item {
+      @include font(18px, 28px, "Lato-Regular");
+
+      position: relative;
+      counter-increment: order;
+      padding-left: 4.66%;
+      margin-right: 4.24%;
+      color: $gray_0;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(18, 28, 14, 20, "Lato-Regular");
+      }
+
+      @include respond-to(mobile) {
+        padding-left: 5.3%;
+        margin-right: 0;
+        margin-bottom: 35px;
+      }
+
+      @include respond-to(mobile_small) {
+        padding-left: 25px;
+        margin-bottom: 25px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        
+        @include respond-to(mobile) {
+          margin-bottom: 0;
+        }
+      }
+
+      &::before {
+        @include font(96px, 96px, "Lato-Regular");
+
+        content: counter(order);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-20%);
+        color: $white_0;
+
+        @include respond-to(desktop) {
+          @include adaptive-font(96, 96, 32, 32, "Lato-Regular");
+        }
+      }
+    }
+  }
+
+  .braces {
+
+    &__inner {
+      @extend %center_block;
+
+      padding: 3.65% $ph 5.21%;
+
+      @include respond-to(mobile) {
+        padding: 20px $ph 40px;
+      }
+    }
+
+    &__title {
+      @include font(30px, 40px, "PlayfairDisplay-Regular");
+
+      margin-bottom: 30px;
+      color: $gray_9;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(30, 40, 18, 22, "PlayfairDisplay-Regular");
+      }
+
+      @include respond-to(mobile) {
+        margin-bottom: 25px;
+      }
+    }
+
+    &__item {
+      margin-bottom: 5.93%;
+    }
+
+    &__description {
+      display: flex;
+      justify-content: space-between;
+
+      @include respond-to(mobile) {
+        flex-direction: column;
+      }
+
+      &-left-block {
+        width: 48.73%;
+        max-width: 580px;
+
+        @include respond-to(mobile) {
+          width: 100%;
+          max-width: unset;
+        }
+
+        .figure {
+          position: relative;
+          height: 0;
+          width: 100%;
+          padding-bottom: 51.3%;
+          margin-bottom: 10.43%;
+
+          @include respond-to(mobile) {
+            margin-bottom: 30px;
+          }
+
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      &-right-block {
+        width: 48.73%;
+        max-width: 480px;
+
+        @include respond-to(mobile) {
+          width: 100%;
+          max-width: unset;
+        }
+      }
+
+      .advantages {
+        @include font(18px, 27px, "Lato-Regular");
+
+        color: $gray_0;
+
+        @include respond-to(desktop) {
+          @include adaptive-font(18, 27, 16, 20, "Lato-Regular");
+        }
+      }
+    }
+
+    &__text {
+      @include font(18px, 27px, "Lato-Regular");
+
+      color: $gray_0;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(18, 27, 16, 20, "Lato-Regular");
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
