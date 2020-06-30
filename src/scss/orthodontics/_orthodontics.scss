@@ -1,0 +1,397 @@
+.orthodontics {
+
+  &__inner {
+    @extend %center_block;
+
+    padding: 5.21% $ph;
+  }
+
+  &__title {
+    @include font(36px, 40px, "PlayfairDisplay-Bold");
+
+    margin-bottom: 30px;
+    color: $gray_3;
+
+    @include respond-to(desktop) {
+      @include adaptive-font(36, 40, 18, 22, "PlayfairDisplay-Bold");
+    }
+
+    @include respond-to(mobile) {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      &::before {
+        content: "";
+        width: 1px;
+        height: 35px;
+        margin-right: 6px;
+        background-color: $yellow_1;
+      }
+    }
+  }
+
+  &__article {
+    margin-bottom: 5.93%;
+
+    @include respond-to(mobile) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .slider {
+
+    @include respond-to(desktop) {
+      width: calc(100% - 40px);
+      margin: 0 auto;
+    }
+
+    @include respond-to(mobile) {
+      width: 100%;
+    }
+
+    &__list {
+
+      .slick-list {
+        padding-left: 0 !important;
+      }
+
+      .figure {
+        position: relative;
+        width: 100%;
+        margin-bottom: 11.05%;
+
+        &__img-container {
+          position: relative;
+          height: 0;
+          width: 76.14%;
+          padding-bottom: 60.91%;
+          margin: 0 auto 11.05%;
+
+          @include respond-to(mobile) {
+            margin: 0 auto 30px;
+          }
+
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        @include respond-to(mobile) {
+          margin-bottom: 30px;
+        }
+
+        &__note {
+          @include font(18px, 26px, "Lato-Bold");
+
+          position: absolute;
+          top: 0;
+          right: 15%;
+          color: $yellow_1;
+          z-index: 1;
+
+          @include respond-to(desktop) {
+            @include adaptive-font(18, 26, 12, 18, "Lato-Bold");
+          }
+
+          @include respond-to(mobile) {
+            margin-bottom: 30px;
+          }
+        }
+
+        &__caption {
+          @include font(24px, 36px, "PlayfairDisplay-Bold");
+
+          width: 81.4%;
+          margin: 0 auto;
+          color: $gray_9;
+          text-align: center;
+
+          @include respond-to(desktop) {
+            @include adaptive-font(24, 36, 14, 20, "PlayfairDisplay-Bold");
+          }
+        }
+
+        &__link {
+          @include font(18px, 26px, "Lato-Regular");
+
+          display: inline-block;
+          padding: 10px 45px;
+          border: 1px solid $yellow_1;
+          color: $gray_0;
+
+          @include respond-to(desktop) {
+            @include adaptive-font(18, 26, 14, 20, "Lato-Regular");
+          }
+
+          @include respond-to(mobile) {
+            padding: 10px 25px;
+          }
+        }
+      }
+    }
+
+    &__item {
+      margin: 0 25px;
+    }
+  }
+
+  .slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    .brackets {
+
+      &-left {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        height: 0;
+        width: 100%;
+        padding-bottom: 65%;
+        border-left: 1px solid $yellow_1;
+        z-index: -1;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 6.21%;
+          border-top: 1px solid $yellow_1;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 6.21%;
+          border-top: 1px solid $yellow_1;
+        }
+      }
+
+      &-right {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        height: 0;
+        width: 100%;
+        padding-bottom: 65%;
+        border-right: 1px solid $yellow_1;
+        z-index: -1;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 6.21%;
+          border-top: 1px solid $yellow_1;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 6.21%;
+          border-top: 1px solid $yellow_1;
+        }
+      }
+    }
+  }
+
+  .slick-prev,
+  .slick-next {
+    width: auto;
+    height: auto;
+
+    &::before {
+      @include font(36px, 36px, "iconfont");
+
+      color: $gray_0;
+    }
+  }
+
+  .slick-prev {
+    @include icon(arrow_prev);
+    
+    left: -20px;
+  }
+
+  .slick-next {
+    @include icon(arrow_next);
+    
+    right: -20px;
+  }
+}
+
+.article {
+  display: flex;
+  justify-content: space-between;
+
+  @include respond-to(mobile) {
+    flex-direction: column-reverse;
+  }
+
+  &__left-block {
+    width: 50%;
+    max-width: 580px;
+    margin-right: 15px;
+
+    @include respond-to(mobile) {
+      width: 100%;
+      max-width: none;
+      margin-right: 0;
+    }
+  }
+
+  &__right-block {
+    width: 50%;
+    max-width: 480px;
+
+    @include respond-to(mobile) {
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  &__title {
+    @include font(24px, 28px, "PlayfairDisplay-Regular");
+
+    margin-bottom: 15px;
+    color: $gray_3;
+
+    @include respond-to(desktop) {
+      @include adaptive-font(24, 28, 16, 20, "PlayfairDisplay-Regular");
+    }
+  }
+
+  &__text {
+    @include font(18px, 26px, "Lato-Regular");
+
+    margin-bottom: 25px;
+    color: $gray_0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include respond-to(desktop) {
+      @include adaptive-font(18, 26, 14, 18, "Lato-Regular");
+    }
+
+    p {
+      margin-bottom: 25px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__intend {
+    margin-bottom: 25px;
+  }
+
+  &__quotation {
+    padding: 30px 10px;
+    border-top: 1px solid $yellow_1;
+    border-bottom: 1px solid $yellow_1;
+
+    @include respond-to(mobile) {
+      display: none;
+    }
+
+    .blockquote {
+      @include font(24px, 36px, "PlayfairDisplay-Italic");
+
+      margin: 0 0 35px 0;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(24, 36, 14, 18, "PlayfairDisplay-Italic");
+      }
+    }
+
+    &-title {
+      @include font(18px, 26px, "PlayfairDisplay-Regular");
+
+      @include respond-to(desktop) {
+        @include adaptive-font(18, 26, 14, 18, "PlayfairDisplay-Regular");
+      }
+    }
+  }
+
+  .figure {
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding-bottom: 86.88%;
+    margin-bottom: 10.4%;
+    background-color: $gray_10;
+
+    @include respond-to(mobile) {
+      padding-bottom: 46.88%;
+      margin-bottom: 20px;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 111.5%;
+      object-fit: cover;
+
+      @include respond-to(mobile) {
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.intend {
+  color: $gray_0;
+
+  &__title {
+    @include font(18px, 26px, "PlayfairDisplay-Regular");
+
+    @include respond-to(desktop) {
+      @include adaptive-font(18, 26, 12, 18, "PlayfairDisplay-Regular");
+    }
+  }
+
+  &__item {
+    @include font(18px, 26px, "Lato-Regular");
+
+    @include respond-to(desktop) {
+      @include adaptive-font(18, 26, 12, 14, "Lato-Regular");
+    }
+
+    @include respond-to(mobile) {
+      padding-left: 15px;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 10px;
+      background-color: $yellow_1;
+
+      @include respond-to(mobile) {
+        display: none;
+      }
+    }
+  }
+}

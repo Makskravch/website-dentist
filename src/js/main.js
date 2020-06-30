@@ -13,7 +13,7 @@ $(function() {
     $('.header__phone').toggleClass('is-hidden')
   })
 
-
+/* ======================================================================================================= */
   // HOME
   // Slider (promotion section)
   if ($('.promotion .slider__list').length) {
@@ -118,5 +118,51 @@ $(function() {
       $mapItem.removeClass('is-active')
       $mapItem[$streetItem.index(this)].classList.add('is-active')
     })
+  }
+
+  /* ================================================================================================= */
+  // ORTHODONTICS
+  // Correction
+  if ($('.orthodontics__correction .slider__list').length) {
+    $('.orthodontics__correction .slider__list').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      draggable: true,
+      infinite: true,
+      speed: 1000,
+      rows: 0,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '20%',
+            arrows: false,
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '35%',
+            arrows: false,
+          }
+        },
+      ]
+    })
+    .on('setPosition', function (event, slick) {
+      slick.$slides.css('height', slick.$slideTrack.height() + 'px');
+    });
   }
 })

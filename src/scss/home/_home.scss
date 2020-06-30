@@ -41,7 +41,7 @@
       @include font(72px, 78px, "PlayfairDisplay-Bold");
 
       margin-bottom: 30px;
-      
+
       @include respond-to(desktop) {
         @include adaptive-font(72, 78, 30, 32, "PlayfairDisplay-Bold");
       }
@@ -689,12 +689,12 @@
       z-index: 1;
 
       &::before {
-        @include font(35px, 35px, iconfont);
+        @include font(35px, 35px, "iconfont");
 
         color: $gray_0;
         
         @include respond-to(desktop) {
-          @include adaptive-font(35, 35, 10, 10, iconfont);
+          @include adaptive-font(35, 35, 10, 10, "iconfont");
         }
       }
     }
@@ -1135,12 +1135,12 @@
       height: auto;
 
       &::before {
-        @include font(35px, 35px, iconfont);
+        @include font(35px, 35px, "iconfont");
 
         color: $gray_0;
 
         @include respond-to(desktop) {
-          @include adaptive-font(35, 35, 6, 6, iconfont);
+          @include adaptive-font(35, 35, 6, 6, "iconfont");
         }
       }
     }
@@ -1298,12 +1298,12 @@
       }
 
       &::before {
-        @include font(35px, 35px, iconfont);
+        @include font(35px, 35px, "iconfont");
 
         color: $gray_0;
 
         @include respond-to(desktop) {
-          @include adaptive-font(35, 35, 6, 6, iconfont);
+          @include adaptive-font(35, 35, 6, 6, "iconfont");
         }
       }
     }
@@ -1557,12 +1557,12 @@
       z-index: 1;
 
       &::before {
-        @include font(35px, 35px, iconfont);
+        @include font(35px, 35px, "iconfont");
 
         color: $gray_0;
 
         @include respond-to(desktop) {
-          @include adaptive-font(35, 35, 15, 15, iconfont);
+          @include adaptive-font(35, 35, 15, 15, "iconfont");
         }
       }
     }
