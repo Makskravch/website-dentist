@@ -165,7 +165,6 @@
       width: 100%;
       padding-bottom: 86.88%;
       margin-bottom: 10.4%;
-      background-color: $gray_10;
 
       @include respond-to(mobile) {
         padding-bottom: 46.88%;
@@ -550,6 +549,16 @@
   }
 }
 
+.correction {
+
+  .article {
+
+    .figure {
+      background-color: $gray_10;
+    }
+  }
+}
+
 .myobrace {
 
   &-junior {
@@ -591,6 +600,31 @@
               left: 0;
             }
           }
+        }
+      }
+    }
+  }
+
+  &-teens {
+
+    .myobrace-type {
+
+      &__item {
+        position: relative;
+      }
+
+      &__note {
+        position: absolute;
+        top: 50px;
+        right: 20%;
+        z-index: 1;
+
+        @include respond-to(tablet) {
+          top: 30px;
+        }
+
+        &-image {
+          margin-right: 0;
         }
       }
     }
