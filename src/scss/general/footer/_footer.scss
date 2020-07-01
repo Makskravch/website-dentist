@@ -166,6 +166,15 @@
       border: 1px solid $yellow_0;
       margin-bottom: 10px;
       color: $yellow_0;
+      transition: background-color 0.2s linear, color 0.2s linear;
+
+      &:hover {
+
+        @media  only screen and (min-width: $tablet-plus) {
+          color: $white_0;
+          background-color: $yellow_0;
+        }
+      }
     }
   }
 

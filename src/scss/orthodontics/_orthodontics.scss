@@ -39,6 +39,269 @@
     }
   }
 
+  &__myobrace-type {
+    margin-bottom: 10.17%;
+  }
+
+  .article {
+    display: flex;
+    justify-content: space-between;
+
+    @include respond-to(mobile) {
+      flex-direction: column-reverse;
+    }
+
+    &__left-block {
+      width: 50%;
+      max-width: 580px;
+      margin-right: 15px;
+
+      @include respond-to(mobile) {
+        width: 100%;
+        max-width: none;
+        margin-right: 0;
+      }
+    }
+
+    &__right-block {
+      width: 50%;
+      max-width: 480px;
+
+      @include respond-to(mobile) {
+        width: 100%;
+        max-width: none;
+      }
+    }
+
+    &__title {
+      @include font(24px, 28px, "PlayfairDisplay-Regular");
+
+      margin-bottom: 15px;
+      color: $gray_3;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(24, 28, 16, 20, "PlayfairDisplay-Regular");
+      }
+    }
+
+    &__text {
+      @include font(18px, 26px, "Lato-Regular");
+
+      margin-bottom: 25px;
+      color: $gray_0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include respond-to(desktop) {
+        @include adaptive-font(18, 26, 14, 18, "Lato-Regular");
+      }
+
+      p {
+        margin-bottom: 25px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .color {
+        color: $yellow_1;
+      }
+    }
+
+    &__intend {
+      margin-bottom: 25px;
+    }
+
+    &__figcaption {
+      @include font(24px, 36px, "PlayfairDisplay-Regular");
+
+      margin-bottom: 7.29%;
+      color: $gray_9;
+      text-align: center;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(24, 36, 18, 22, "PlayfairDisplay-Regular");
+      }
+
+      @include respond-to(mobile) {
+        display: none;
+      }
+    }
+
+    &__quotation {
+      padding: 30px 10px;
+      border-top: 1px solid $yellow_1;
+      border-bottom: 1px solid $yellow_1;
+
+      @include respond-to(mobile) {
+        display: none;
+      }
+
+      .blockquote {
+        @include font(24px, 36px, "PlayfairDisplay-Italic");
+
+        margin: 0 0 35px 0;
+
+        @include respond-to(desktop) {
+          @include adaptive-font(24, 36, 14, 18, "PlayfairDisplay-Italic");
+        }
+      }
+
+      &-title {
+        @include font(18px, 26px, "PlayfairDisplay-Regular");
+
+        @include respond-to(desktop) {
+          @include adaptive-font(18, 26, 14, 18, "PlayfairDisplay-Regular");
+        }
+      }
+    }
+
+    .figure {
+      position: relative;
+      height: 0;
+      width: 100%;
+      padding-bottom: 86.88%;
+      margin-bottom: 10.4%;
+      background-color: $gray_10;
+
+      @include respond-to(mobile) {
+        padding-bottom: 46.88%;
+        margin-bottom: 20px;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 111.5%;
+        object-fit: cover;
+
+        @include respond-to(mobile) {
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .intend {
+    color: $gray_0;
+
+    &__title {
+      @include font(18px, 26px, "PlayfairDisplay-Regular");
+
+      @include respond-to(desktop) {
+        @include adaptive-font(18, 26, 12, 18, "PlayfairDisplay-Regular");
+      }
+    }
+
+    &__item {
+      @include font(18px, 26px, "Lato-Regular");
+
+      position: relative;
+      padding-left: 20px;
+
+      @include respond-to(desktop) {
+        @include adaptive-font(18, 26, 12, 14, "Lato-Regular");
+      }
+
+      @include respond-to(mobile) {
+        padding-left: 15px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 7px;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        background-color: $yellow_1;
+
+        @include respond-to(mobile) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .myobrace-type {
+
+    &__list {
+      counter-reset: li;
+      display: flex;
+      justify-content: space-between;
+
+      @include respond-to(mobile) {
+        flex-direction: column;
+      }
+    }
+
+    &__item {
+      counter-increment: li;
+      width: 25.42%;
+      padding: 2.54% 3.39%;
+      background-color: $gray_7;
+      box-shadow: 0px 10px 30px $gray_4;
+
+      @include respond-to(desktop) {
+        width: 30%;
+      }
+
+      @include respond-to(mobile) {
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 40px;
+      }
+    }
+
+    &__figure {
+      position: relative;
+      height: 0;
+      width: 100%;
+      padding-bottom: 75%;
+      margin-bottom: 20px;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__text {
+
+      p {
+        @include font(18px, 26px, "Lato-Regular");
+
+        color: $gray_0;
+
+        &:first-child {
+
+          &::before {
+            @include font(18px, 28px, "Lato-Regular");
+
+            content: counter(li);
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            border: 1px solid $white_0;
+            border-radius: 50%;
+            background-color: $orange_0;
+            color: $white_0;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
   .slider {
 
     @include respond-to(desktop) {
@@ -124,6 +387,7 @@
           padding: 10px 45px;
           border: 1px solid $yellow_1;
           color: $gray_0;
+          transition: background-color 0.2s linear;
 
           @include respond-to(desktop) {
             @include adaptive-font(18, 26, 14, 20, "Lato-Regular");
@@ -131,6 +395,13 @@
 
           @include respond-to(mobile) {
             padding: 10px 25px;
+          }
+
+          &:hover {
+
+            @media  only screen and (min-width: $tablet-plus) {
+              background-color: $yellow_1;
+            }
           }
         }
       }
@@ -232,166 +503,5 @@
     @include icon(arrow_next);
     
     right: -20px;
-  }
-}
-
-.article {
-  display: flex;
-  justify-content: space-between;
-
-  @include respond-to(mobile) {
-    flex-direction: column-reverse;
-  }
-
-  &__left-block {
-    width: 50%;
-    max-width: 580px;
-    margin-right: 15px;
-
-    @include respond-to(mobile) {
-      width: 100%;
-      max-width: none;
-      margin-right: 0;
-    }
-  }
-
-  &__right-block {
-    width: 50%;
-    max-width: 480px;
-
-    @include respond-to(mobile) {
-      width: 100%;
-      max-width: none;
-    }
-  }
-
-  &__title {
-    @include font(24px, 28px, "PlayfairDisplay-Regular");
-
-    margin-bottom: 15px;
-    color: $gray_3;
-
-    @include respond-to(desktop) {
-      @include adaptive-font(24, 28, 16, 20, "PlayfairDisplay-Regular");
-    }
-  }
-
-  &__text {
-    @include font(18px, 26px, "Lato-Regular");
-
-    margin-bottom: 25px;
-    color: $gray_0;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    @include respond-to(desktop) {
-      @include adaptive-font(18, 26, 14, 18, "Lato-Regular");
-    }
-
-    p {
-      margin-bottom: 25px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  &__intend {
-    margin-bottom: 25px;
-  }
-
-  &__quotation {
-    padding: 30px 10px;
-    border-top: 1px solid $yellow_1;
-    border-bottom: 1px solid $yellow_1;
-
-    @include respond-to(mobile) {
-      display: none;
-    }
-
-    .blockquote {
-      @include font(24px, 36px, "PlayfairDisplay-Italic");
-
-      margin: 0 0 35px 0;
-
-      @include respond-to(desktop) {
-        @include adaptive-font(24, 36, 14, 18, "PlayfairDisplay-Italic");
-      }
-    }
-
-    &-title {
-      @include font(18px, 26px, "PlayfairDisplay-Regular");
-
-      @include respond-to(desktop) {
-        @include adaptive-font(18, 26, 14, 18, "PlayfairDisplay-Regular");
-      }
-    }
-  }
-
-  .figure {
-    position: relative;
-    height: 0;
-    width: 100%;
-    padding-bottom: 86.88%;
-    margin-bottom: 10.4%;
-    background-color: $gray_10;
-
-    @include respond-to(mobile) {
-      padding-bottom: 46.88%;
-      margin-bottom: 20px;
-    }
-
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 111.5%;
-      object-fit: cover;
-
-      @include respond-to(mobile) {
-        object-fit: contain;
-      }
-    }
-  }
-}
-
-.intend {
-  color: $gray_0;
-
-  &__title {
-    @include font(18px, 26px, "PlayfairDisplay-Regular");
-
-    @include respond-to(desktop) {
-      @include adaptive-font(18, 26, 12, 18, "PlayfairDisplay-Regular");
-    }
-  }
-
-  &__item {
-    @include font(18px, 26px, "Lato-Regular");
-
-    @include respond-to(desktop) {
-      @include adaptive-font(18, 26, 12, 14, "Lato-Regular");
-    }
-
-    @include respond-to(mobile) {
-      padding-left: 15px;
-    }
-
-    &::before {
-      content: "";
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin-right: 10px;
-      background-color: $yellow_1;
-
-      @include respond-to(mobile) {
-        display: none;
-      }
-    }
   }
 }

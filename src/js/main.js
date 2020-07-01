@@ -123,8 +123,8 @@ $(function() {
   /* ================================================================================================= */
   // ORTHODONTICS
   // Correction
-  if ($('.orthodontics__correction .slider__list').length) {
-    $('.orthodontics__correction .slider__list').slick({
+  if ($('.orthodontics .slider__list').length) {
+    $('.orthodontics .slider__list').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
       draggable: true,
