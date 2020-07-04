@@ -4,7 +4,25 @@ let slick = require('./slick.js')
 $(function() {
   const $body = $('body')
   const $nav = $('nav')
-  
+
+
+  $('a[href*="#"]').on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+        event.preventDefault();
+
+        let hash = this.hash;
+
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top - 100
+        }, 500, function(){
+            window.location.hash = hash;
+        });
+    }
+  });
+
   // Open/close navigation
   $(document).on('click', '.js-nav-toggle', function() {
     $(this).toggleClass('is-active')

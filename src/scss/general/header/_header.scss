@@ -161,15 +161,36 @@
 }
 
 .phone {
+  @include font(18px, 22px, "Lato-Regular");
+
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  color: $yellow_0;
+
   @include respond-to(desktop) {
     @include adaptive-font(18, 22, 14, 18, "Lato-Regular");
   }
 
-  @include font(18px, 22px, "Lato-Regular");
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background-color: $yellow_0;
+    transition: width 0.2s linear;
+  }
 
-  display: flex;
-  align-items: flex-end;
-  color: $yellow_0;
+  &:hover {
+
+    &::after {
+		  @media only screen and (min-width: 992px) {
+        width: 100%;
+      }
+    }
+  }
 
   &__svg {
     fill: currentColor;
