@@ -1,0 +1,123 @@
+.price {
+  @extend %center_block;
+
+  padding: 7.81% $ph 13.02%;
+
+  &__title {
+    @include font(64px, 70px, "PlayfairDisplay-Bold");
+
+    margin-bottom: 5.08%;
+    color: $gray_3;
+
+    @include respond-to(desktop) {
+      @include adaptive-font(64, 70, 18, 22, "PlayfairDisplay-Bold");
+    }
+
+    @include respond-to(mobile) {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+
+      &::before {
+        content: "";
+        width: 1px;
+        height: 35px;
+        margin-right: 6px;
+        background-color: $yellow_1;
+      }
+    }
+  }
+
+  .table {
+
+    &__head {
+      display: flex;
+      border: 1px solid $yellow_1;
+      color: $gray_3;
+      background-color: $yellow_1;
+
+      p {
+        @include font(30px, 36px, "PlayfairDisplay-Regular");
+
+        color: $gray_3;
+
+        @include respond-to(desktop) {
+          @include adaptive-font(30, 36, 16, 20, "PlayfairDisplay-Regular");
+        }
+      }
+    }
+
+    &__left {
+      display: flex;
+      align-items: center;
+      width: 67.8%;
+      padding: 20px 30px;
+
+      @include respond-to(mobile) {
+        width: 60%;
+        padding: 8px 14px;
+      }
+    }
+
+    &__right {
+      display: flex;
+      align-items: center;
+      width: 32.2%;
+      padding: 20px 30px;
+
+      @include respond-to(mobile) {
+        width: 40%;
+        padding: 8px 14px;
+      }
+    }
+
+    &__body {
+      border: 1px solid $gray_2;
+
+      &-head {
+        @include font(24px, 28px, "PlayfairDisplay-Regular");
+
+        padding: 20px 30px;
+        border-bottom: 1px solid $gray_2;
+        color: $gray_3;
+        background-color: $gray_7;
+
+        @include respond-to(desktop) {
+          @include adaptive-font(24, 28, 12, 14, "PlayfairDisplay-Regular");
+        }
+
+        @include respond-to(mobile) {
+          padding: 4px 14px;
+        }
+      }
+    }
+
+    &__item {
+      display: flex;
+      border-bottom: 1px solid $gray_2;
+      color: $gray_0;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      .table__left {
+        @include font(24px, 28px, "Lato-Regular");
+
+        @include respond-to(desktop) {
+          @include adaptive-font(24, 28, 12, 14, "Lato-Regular");
+        }
+      }
+
+      .table__right {
+        @include font(24px, 28px, "Lato-Regular");
+
+        border-left: 1px solid $gray_2;
+  
+        @include respond-to(desktop) {
+          @include adaptive-font(24, 28, 12, 14, "Lato-Regular");
+        }
+      }
+    }
+  }
+}
