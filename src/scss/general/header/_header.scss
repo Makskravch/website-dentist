@@ -83,7 +83,10 @@
     &:hover {
 
       .nav__link_arrow::after {
-        transform: rotate(180deg);
+
+        @media only screen and (min-width: $tablet-plus) {
+          transform: rotate(180deg);
+        }
       }
     }
 
@@ -112,9 +115,12 @@
       border-color: $yellow_0;
 
       & + .subnav {
-        transform: translate(-50%, 0);
-        opacity: 1;
-        visibility: visible;
+
+        @media only screen and (min-width: $tablet-plus) {
+          transform: translate(-50%, 0);
+          opacity: 1;
+          visibility: visible;
+        }
       }
     }
 
@@ -145,6 +151,21 @@
           display: none;
         }
       }
+      
+      &.nav__link--default {
+
+        &::after {
+
+          @include respond-to(tablet-plus) {
+            display: inline-flex;
+            border-top-color: $white_0;
+          }
+        }
+      }
+    }
+
+    &--default {
+      cursor: default;
     }
   }
 
@@ -242,14 +263,19 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  padding-top: 10px;
   transform: translate(-50%, 10px);
-  opacity: 0;
-  visibility: hidden;
+  padding-top: 10px;
   transition: opacity 0.2s linear, visibility 0.2s linear, transform 0.2s linear;
 
   @include respond-to(tablet-plus) {
     display: none;
+    position: relative;
+    top: 0;
+  }
+
+  @media only screen and (min-width: $tablet-plus) {
+    opacity: 0;
+    visibility: hidden;
   }
 
   &:hover {
@@ -262,6 +288,12 @@
     padding: 0 20px;
     background-color: $white_0;
     box-shadow: 0px 4px 48px $gray_8;
+
+    @include respond-to(tablet-plus) {
+      position: relative;
+      top: 0;
+      padding: 0;
+    }
   }
   
   &__item {
@@ -287,6 +319,10 @@
     
     @include respond-to(desktop) {
       @include adaptive-font(18, 24, 14, 18, "Lato-Regular");
+    }
+
+    @include respond-to(tablet-plus) {
+      padding: 10px 0;
     }
   }
 }

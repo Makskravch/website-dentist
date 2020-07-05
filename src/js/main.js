@@ -5,22 +5,23 @@ $(function() {
   const $body = $('body')
   const $nav = $('nav')
 
-
-  $('a[href*="#"]').on('click', function(event) {
-
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-
-        event.preventDefault();
-
-        let hash = this.hash;
-
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top - 100
-        }, 500, function(){
-            window.location.hash = hash;
-        });
-    }
+  
+  $(window).bind("load", function() {
+    //Пример исключения ссылки:
+    //jQuery('a[href*="#"]:not([href="#"],[href="#spu-209"]').click(function() {
+    $('a[href*="#"]:not([href="#"]').click(function() {
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') ||
+        location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          $("html, body").animate({
+            scrollTop: target.offset().top - 100
+          }, 1000);
+          return false;
+        }
+      }
+    });
   });
 
   // Open/close navigation
@@ -30,6 +31,14 @@ $(function() {
     $body.toggleClass('overflow')
     $('.header__phone').toggleClass('is-hidden')
   })
+
+  // Open/close subnav (on mobile version)
+  $(document).on('click', '.js-subnav-toggle', function() {
+    if ($(window ).width() <= 992) {
+      $(this).next('.subnav').slideToggle()
+    }
+  })
+  
 
 /* ======================================================================================================= */
   // HOME
@@ -184,3 +193,14 @@ $(function() {
     });
   }
 })
+
+$(window).load(function() {
+  function goToByScroll(id) {
+    $("html, body").animate({
+      scrollTop: $("#" + id).offset().top - 100
+    }, 1000);
+  }
+  if (window.location.hash != '') {
+    goToByScroll(window.location.hash.substr(1));
+  }
+});

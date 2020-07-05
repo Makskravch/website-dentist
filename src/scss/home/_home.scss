@@ -1688,11 +1688,21 @@
         display: inline-flex;
         align-items: center;
 
+        &:hover {
+
+          @media  only screen and (min-width: $tablet-plus) {
+            .icon-location {
+              margin-top: -10px;
+            }
+          }
+        }
+
         .icon-location {
           @include font(48px, 48px, "iconfont");
 
           margin-right: 40px;
           color: $yellow_1;
+          transition: margin-top 0.2s linear;
 
           @include respond-to(desktop) {
             @include adaptive-font(48, 48, 16, 16, "iconfont");
@@ -1732,14 +1742,25 @@
         align-items: center;
         color: $gray_0;
 
+        &:hover {
+
+          @media  only screen and (min-width: $tablet-plus) {
+            &::before {
+              transform: rotate(-15deg);
+            }
+          }
+        }
+
         &::before {
           @include font(44px, 44px, "iconfont");
+
+          margin-right: 25px;
+          color: $yellow_1;
+          transition: transform 0.2s linear;
 
           @include respond-to(desktop) {
             @include adaptive-font(44, 44, 16, 16, "iconfont");
           }
-          margin-right: 25px;
-          color: $yellow_1;
         }
 
         @include respond-to(desktop) {
