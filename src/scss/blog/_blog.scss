@@ -1,0 +1,156 @@
+.blog {
+
+  &__title {
+    @extend %center_block;
+    @include font(64px, 70px, "PlayfairDisplay-Bold");
+
+    padding: 2.6% $ph;
+    color: $gray_3;
+
+    @include respond-to(desktop) {
+      @include adaptive-font(64, 70, 18, 22, "PlayfairDisplay-Bold");
+    }
+
+    @include respond-to(mobile) {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+
+      &::before {
+        content: "";
+        width: 1px;
+        height: 35px;
+        margin-right: 6px;
+        background-color: $yellow_1;
+      }
+    }
+  }
+
+  .page-section {
+
+    &__bg-container {
+      position: relative;
+      height: 0;
+      width: 100%;
+      padding-bottom: 36.46%;
+      z-index: -1;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__inner {
+      @extend %center_block;
+
+      position: relative;
+      padding: 4.17% $ph 7.81%;
+      margin-top: -14.58%;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 100vw;
+        max-width: 1380px;
+        height: 100%;
+        transform: translateX(-50%);
+        background-color: $white_0;
+        z-index: -1;
+
+        @include respond-to(mobile) {
+          display: none;
+        }
+      }
+
+      @include respond-to(mobile) {
+        margin-top: -13.5%;
+      }
+
+      @include respond-to(mobile_small) {
+        margin-top: -18%;
+      }
+    }
+
+    &__text {
+      max-width: 1080px;
+    }
+
+    &__title {
+      @include font(36px, 42px, "PlayfairDisplay-Bold");
+
+      margin-bottom: 2.86%;
+      color: $yellow_1;
+      letter-spacing: 0.03em;
+
+      &::before {
+        @include respond-to(mobile) {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 100%;
+          height: 100%;
+          transform: translateX(-50%);
+          background-color: $white_0;
+          z-index: -1;
+        }
+      }
+
+      @include respond-to(desktop) {
+        @include adaptive-font(36, 42, 18, 26, "PlayfairDisplay-Bold");
+      }
+
+      @include respond-to(mobile) {
+        position: relative;
+        display: inline-block;
+        padding: 20px 10px;
+        margin-bottom: 0;
+      }
+    }
+
+    &__description {
+
+      p {
+        @include font(24px, 36px, "Lato-Regular");
+
+        margin-bottom: 30px;
+        color: $gray_0;
+
+        @include respond-to(desktop) {
+          @include adaptive-font(24, 36, 14, 20, "Lato-Regular");
+        }
+
+        @include respond-to(mobile) {
+          margin-bottom: 20px;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &-figure {
+        position: relative;
+        height: 0;
+        width: 100%;
+        max-width: 840px;
+        padding-bottom: 45.37%;
+        margin: 0 auto;
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
