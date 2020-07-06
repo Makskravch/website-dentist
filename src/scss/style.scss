@@ -1,3 +1,7 @@
+// AOS (Animate on scroll library)
+@import "AOS/animations", "AOS/core", "AOS/easing", "AOS/aos.scss";
+
+// Initial
 @import "fonts";
 @import "variables";
 @import "extends";
@@ -12,7 +16,7 @@
 @import "general/footer/footer";
 @import "general/message/message";
 
-
+// Pages
 @import "home/home";
 @import "bracket-system/bracket-system";
 @import "orthodontics/orthodontics";
