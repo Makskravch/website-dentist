@@ -1,7 +1,7 @@
 .home {
 
   .banner {
-    @include background(url("../img/home/banner/1.jpg"), top, right, cover);
+    @include background(url("../img/home/banner/bg.png"), top, right, contain);
 
     position: relative;
 

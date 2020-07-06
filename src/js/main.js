@@ -39,7 +39,7 @@ $(function() {
   });
 
   // Open/close navigation
-  $(document).on('click', '.js-nav-toggle', function() {
+  $(document).on('click', '.js-nav-toggle', function(e) {
     $(this).toggleClass('is-active')
     $nav.toggleClass('is-active')
     $body.toggleClass('overflow')
@@ -211,10 +211,10 @@ $(function() {
 $(window).on('load', function() {
   function goToByScroll(id) {
     $("html, body").animate({
-      scrollTop: $("#" + id).offset().top - 100
+      scrollTop: $(id).offset().top - 100
     }, 1000);
   }
   if (window.location.hash != '') {
-    goToByScroll(window.location.hash.substr(1));
+    goToByScroll(window.location.hash);
   }
 });

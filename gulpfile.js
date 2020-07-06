@@ -151,6 +151,7 @@ exports.img = img
 exports.js = js
 exports.css = css
 exports.html = html
+exports.clean = clean
 exports.build = build
 exports.watch = watch
 exports.default = watch

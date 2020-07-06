@@ -11,6 +11,11 @@
   z-index: 8;
   cursor: pointer;
 
+  @include respond-to(mobile) {
+    width: 40px;
+    padding-bottom: 40px;
+  }
+
   &:hover {
 
     .message__list {
@@ -26,10 +31,6 @@
   @include respond-to(desktop) {
     bottom: 30px;
     right: 30px;
-  }
-
-  @include respond-to(tablet-plus) {
-    display: none;
   }
 
   &__list {

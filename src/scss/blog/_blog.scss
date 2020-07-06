@@ -26,6 +26,34 @@
     }
   }
 
+  .section-1 {
+
+    .page-section__bg-container {
+      @include background(url("../img/blog/section-1/bg.jpg"));
+    }
+  }
+
+  .section-2 {
+
+    .page-section__bg-container {
+      @include background(url("../img/blog/section-2/bg.jpg"));
+    }
+  }
+
+  .section-3 {
+
+    .page-section__bg-container {
+      @include background(url("../img/blog/section-3/bg.jpg"));
+    }
+  }
+
+  .section-4 {
+
+    .page-section__bg-container {
+      @include background(url("../img/blog/section-4/bg.jpg"));
+    }
+  }
+
   .page-section {
 
     &__bg-container {
