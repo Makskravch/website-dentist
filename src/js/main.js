@@ -1,21 +1,9 @@
 let $ = require('jquery')
 let AOS = require('aos')
+let magnificPopup = require('magnific-popup')
 let slick = require('./slick.js')
 
 $(function() {
-  $('h1, h2, h3, h4, h5, h6, img').attr("data-aos", "fade-up")
-
-  AOS.init({
-    offset: 120, // offset (in px) from the original trigger point
-    delay: 0, // values from 0 to 3000, with step 50ms
-    duration: 600, // values from 0 to 3000, with step 50ms
-    easing: 'ease', // default easing for AOS animations
-    once: false, // whether animation should happen only once - while scrolling down
-    mirror: false, // whether elements should animate out while scrolling past them
-    anchorPlacement: 'top-bottom',
-  });
-  setTimeout(AOS.refresh, 500)
-
   const $body = $('body')
   const $nav = $('nav')
 
@@ -206,6 +194,33 @@ $(function() {
       slick.$slides.css('height', slick.$slideTrack.height() + 'px');
     });
   }
+
+  // AOS Initial (Animate on scroll)
+  $('h1, h2, h3, h4, h5, h6, img').attr("data-aos", "fade-up")
+
+  AOS.init({
+    offset: 120, // offset (in px) from the original trigger point
+    delay: 0, // values from 0 to 3000, with step 50ms
+    duration: 600, // values from 0 to 3000, with step 50ms
+    easing: 'ease', // default easing for AOS animations
+    once: false, // whether animation should happen only once - while scrolling down
+    mirror: false, // whether elements should animate out while scrolling past them
+    anchorPlacement: 'top-bottom',
+  });
+
+  // Magnific Popup Initial
+  $('.mfp-image').magnificPopup({
+    type:'image',
+    zoom: {
+      enabled: true, // By default it's false, so don't forget to enable it
+      duration: 300, // duration of the effect, in milliseconds
+      easing: 'ease-in-out', // CSS transition easing function
+    },
+    gallery:{
+      enabled:true,
+      navigateByImgClick: true,
+    },
+  });
 })
 
 $(window).on('load', function() {

@@ -44,6 +44,7 @@ const path = {
 		css: sourceFolder + '/scss/**/*.scss',
 		js: sourceFolder + '/js/**/*.js',
 		img: sourceFolder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
+		icons: sourceFolder + '/img/svg/**/*.svg',
 	},
 	clean: './' + projectFolder + '/'
 }
@@ -136,13 +137,14 @@ function watchFiles() {
 	gulp.watch([path.watch.css], css)
 	gulp.watch([path.watch.js], js)
 	gulp.watch([path.watch.img], img)
+	gulp.watch([path.watch.icons], iconFont)
 }
 
 function clean() {
 	return del(path.clean)
 }
 
-const build = gulp.series(clean, gulp.parallel(js, css, html, img, fonts))
+const build = gulp.series(clean, gulp.parallel(js, css, html, img, fonts, iconFont))
 const watch = gulp.parallel(build, watchFiles, browserSync)
 
 exports.iconFont = iconFont
