@@ -194,7 +194,8 @@ $(function() {
       slick.$slides.css('height', slick.$slideTrack.height() + 'px');
     });
   }
-
+  
+  // =================================================================================================================
   // AOS Initial (Animate on scroll)
   if ($('h1, h2, h3, h4, h5, h6, img').length) {
     $('h1, h2, h3, h4, h5, h6, img').attr("data-aos", "fade-up")
@@ -210,9 +211,24 @@ $(function() {
     });
   }
 
+  // =================================================================================================================
   // Magnific Popup Initial
-  if ($('.mfp-image').length) {
-    $('.mfp-image').magnificPopup({
+  if ($('.mfp-clinic').length) {
+    $('.mfp-clinic').magnificPopup({
+      type:'image',
+      zoom: {
+        enabled: true, // By default it's false, so don't forget to enable it
+        duration: 300, // duration of the effect, in milliseconds
+        easing: 'ease-in-out', // CSS transition easing function
+      },
+      gallery:{
+        enabled:true,
+        navigateByImgClick: true,
+      },
+    });
+  }
+  if ($('.mfp-certificates').length) {
+    $('.mfp-certificates').magnificPopup({
       type:'image',
       zoom: {
         enabled: true, // By default it's false, so don't forget to enable it

@@ -36,20 +36,17 @@
 	@if $filename == location {
 		$char: "\E003";
 	}
-	@if $filename == message {
+	@if $filename == phone {
 		$char: "\E004";
 	}
-	@if $filename == phone {
+	@if $filename == stady {
 		$char: "\E005";
 	}
-	@if $filename == stady {
+	@if $filename == star {
 		$char: "\E006";
 	}
-	@if $filename == star {
-		$char: "\E007";
-	}
 	@if $filename == tooth {
-		$char: "\E008";
+		$char: "\E007";
 	}
 
 	@return $char;
@@ -74,9 +71,6 @@
 }
 .icon-location {
 	@include icon(location);
-}
-.icon-message {
-	@include icon(message);
 }
 .icon-phone {
 	@include icon(phone);

@@ -30,6 +30,7 @@ const path = {
 		js: projectFolder + '/js/',
 		img: projectFolder + '/img/',
 		fonts: projectFolder + '/fonts/',
+		icons: projectFolder + '/fonts/icons',
 	},
 	src: {
 		html: [sourceFolder + '/*.html', '!' + sourceFolder + '/_*.html'],
@@ -37,14 +38,14 @@ const path = {
 		js: sourceFolder + '/js/main.js',
 		img: sourceFolder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
 		fonts: sourceFolder + '/fonts/**/*.{eot,ttf,woff,woff2,svg}',
-		icons: [sourceFolder + '/img/svg/*.svg', '!' + sourceFolder + '/img/svg/_*.svg'],
+		icons: [sourceFolder + '/icons/**/*.svg', '!' + sourceFolder + '/icons/**/_*.svg'],
 	},
 	watch: {
 		html: sourceFolder + '/**/*.html',
 		css: sourceFolder + '/scss/**/*.scss',
 		js: sourceFolder + '/js/**/*.js',
 		img: sourceFolder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
-		icons: sourceFolder + '/img/svg/**/*.svg',
+		icons: sourceFolder + '/icons/svg/**/*.svg',
 	},
 	clean: './' + projectFolder + '/'
 }
@@ -76,10 +77,11 @@ function css() {
 		.pipe(media_queries())
 		.pipe(autoprefixer())
 		.pipe(dest(path.build.css))
-		.pipe(browsersync.stream())
 		.pipe(clean_css())
+		.pipe(sourcemaps.write())
 		.pipe(rename({ extname: '.min.css' }))
 		.pipe(dest(path.build.css))
+		.pipe(browsersync.stream())
 }
 
 function js() {
@@ -129,7 +131,7 @@ function iconFont() {
 			formats: ['ttf', 'eot', 'woff', 'svg', 'woff2'],
 			timestamp: runTimestamp,
 		}))
-		.pipe(dest(path.build.fonts + '/icons'))
+		.pipe(dest(path.build.icons))
 }
 
 function watchFiles() {
